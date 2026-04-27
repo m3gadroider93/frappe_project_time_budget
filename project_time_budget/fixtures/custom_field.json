@@ -1,0 +1,27 @@
+[
+ {
+  "doctype": "Custom Field",
+  "name": "Project-budgeted_hours",
+  "dt": "Project",
+  "module": "Project Time Budget",
+  "fieldname": "budgeted_hours",
+  "label": "Budgeted Hours",
+  "fieldtype": "Float",
+  "insert_after": "estimated_costing",
+  "in_list_view": 1,
+  "translatable": 0
+ },
+ {
+  "doctype": "Custom Field",
+  "name": "Project-logged_hours",
+  "dt": "Project",
+  "module": "Project Time Budget",
+  "fieldname": "logged_hours",
+  "label": "Logged Hours",
+  "fieldtype": "Float",
+  "insert_after": "budgeted_hours",
+  "read_only": 1,
+  "no_copy": 1,
+  "translatable": 0
+ }
+]

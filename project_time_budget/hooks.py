@@ -134,17 +134,31 @@ app_license = "mit"
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
-# Document Events
-# ---------------
-# Hook on document methods and events
+doctype_js = {"Project": "public/js/project.js"}
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Timesheet": {
+		"before_submit": "project_time_budget.budget.validate_hard_limit",
+		"on_submit": "project_time_budget.budget.recalculate_from_timesheet",
+		"on_cancel": "project_time_budget.budget.recalculate_from_timesheet",
+	},
+}
+
+fixtures = [
+	{
+		"dt": "Custom Field",
+		"filters": [
+			[
+				"name",
+				"in",
+				[
+					"Project-budgeted_hours",
+					"Project-logged_hours",
+				],
+			]
+		],
+	}
+]
 
 # Scheduled Tasks
 # ---------------
